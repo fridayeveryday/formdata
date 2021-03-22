@@ -41,7 +41,6 @@
         </div>
     </form>
 
-
     <button type="button" id="btnSubmit" class="btn btn-primary">Submit</button>
 
 </div>
@@ -55,20 +54,15 @@
 
 
             var form = $('#fileUploadForm')[0];
-            var fd = new FormData(form);
-            var data = [];
+
+            var data = new FormData(form);
 
 
             var jsonDataObj = {
                 "firstname": $("#firstname").val(),
                 "lastname": $("#lastname").val()
             };
-            fd.append("jsondata", JSON.stringify(jsonDataObj));
-            console.log(fd);
-            data.push(fd);
-            data.push(fd);
-            console.log(data);
-
+            data.append("jsondata", JSON.stringify(jsonDataObj));
             $("#btnSubmit").prop("disabled", true);
             $.ajax({
                 type: "POST",
